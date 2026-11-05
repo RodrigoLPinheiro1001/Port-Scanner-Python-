@@ -1,6 +1,8 @@
 import pyfiglet
 from rich.console import Console
 from pages.about_me import about_page
+from pages.scanner import scanner_page
+from pages.spt import speed_test_page
 
 console = Console()
 
@@ -13,6 +15,7 @@ def home_page():
         pyfiglet.figlet_format("TC Scanner", font="slant"),
         style="bold cyan"
     )
+    console.print("© 2026 Rodrigo  - Todos os direitos reservados\n", style="bold green")
 
     console.print("Scanner de portas TCP simples\n", style="bold blue")
     console.print(
@@ -25,6 +28,7 @@ def home_page():
         "Comandos permitidos:\n",
         "1 - IP (Ex: 127.0.0.1)\n",
         "2 - \"ab\" (abre página Sobre mim)\n",
+        "3 - \"speed\" (abre página de teste de velocidade)\n",
         style="bold blue"
     )
 
@@ -43,12 +47,22 @@ def home_page():
             about_page()
             return
 
+        elif target in ["speed", "Speed"]:
+            console.print(
+                f"\n[bold green]A abrir a página de teste de velocidade ...[/bold green]"
+            )
+
+            speed_test_page()
+            return
+        
         # Validar target (Será localhost ou um host válido?)
         elif target in ["localhost", "127.0.0.1"]:
             console.print(
                 f"\n[bold green]Target selecionado: {target}[/bold green]"
             )
-            return target
+
+            scanner_page(target)
+            return
 
         # Target Inválido 
         else:
