@@ -1,18 +1,19 @@
-# Python program to test
-# internet speed
-
 import speedtest  
 from rich.console import Console, Group
-
+import pyfiglet
 console = Console()
 
 def speed_test_page():
 
     
     console.clear()
-    print("Welcome to the Internet Speed Test Page !\n")
-    print("This page will help you to test your internet speed.\n")
-    print("Please wait while we are testing your internet speed...\n")
+    console.print(
+        pyfiglet.figlet_format("Speed Test", font="slant"),
+        style="bold cyan"
+    )
+    console.print("© 2026 Rodrigo  - Todos os direitos reservados\n", style="bold green")
+
+
     st = speedtest.Speedtest()
 
     option = int(input('''What speed do you want to test:  

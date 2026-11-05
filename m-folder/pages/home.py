@@ -12,11 +12,12 @@ def home_page():
     console.clear()
 
     console.print(
-        pyfiglet.figlet_format("TC Scanner", font="slant"),
+        pyfiglet.figlet_format("TC Vision", font="slant"),
         style="bold cyan"
     )
+    
     console.print("© 2026 Rodrigo  - Todos os direitos reservados\n", style="bold green")
-
+    console.print("Versão: 0.1.0\n", style="bold yellow")
     console.print("Scanner de portas TCP simples\n", style="bold blue")
     console.print(
         "Nota: Este scanner só funciona para localhost "
